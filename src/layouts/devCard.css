@@ -1,0 +1,10 @@
+#card {
+    margin-bottom: 15px;
+}
+
+ #card1:hover, #card2:hover, #card3:hover, #card4:hover, #card5:hover,
+ #card6:hover, #card7:hover, #card8:hover, #card9:hover, #card10:hover{
+    background-color: #7986;
+    color: aliceblue;
+    height: 25em;
+}

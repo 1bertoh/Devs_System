@@ -1,0 +1,12 @@
+#cardNav {
+    -webkit-box-shadow: 25px 19px 33px 0px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 25px 19px 33px 0px rgba(0, 0, 0, 0.59);
+    box-shadow: 25px 19px 33px 0px rgba(0, 0, 0, 0.59);
+}
+#cardNavHeader {
+    background-color: #02263b;
+    color: white;
+}
+#cardNavbar {
+    color: #02066f;
+}
