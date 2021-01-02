@@ -7,7 +7,7 @@ import './devCard.css'
 export default (props) => {
     return (
         <div className='mb-3'>
-            <Card style={{ width: "18rem" }} id={props.userId}>
+            <Card style={{ width: "18rem" }} id={props.id}>
                 <Card.Img variant="top" src={props.Foto} />
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
