@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, FormControl, InputGroup, Button, Alert } from "react-bootstrap";
+import { Card, FormControl, InputGroup, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 import MyComments from "./cardNavigationMyComments";
 import "./cardNavigationComment.css";
@@ -12,15 +12,19 @@ export default () => {
     const [myComment, setMyComment] = React.useState("");
     const [myCommentTitle, setMyCommentTitle] = React.useState("");
     const [commentAlert, setCommentAlert] = React.useState(false);
+    const [loadSpinner, setLoadSpinner] = React.useState(true);
     const dispatch = useDispatch();
     const api = axios.create({
         baseURL: `https://jsonplaceholder.typicode.com/comments?postId=${devId}`,
     });
 
-    useEffect(async () => {
-        const response = await api.get("");
-
-        setComments(response.data);
+    useEffect( () => {
+        setTimeout(async() => {
+            const response = await api.get("");
+            setComments(response.data);
+            setLoadSpinner(false)
+        }, 1000)
+        
     }, []);
 
     function commentCreator() {
@@ -63,6 +67,7 @@ export default () => {
     return (
         <div>
             {generateComments()}
+            {loadSpinner  ? <div style={{height:'30em', paddingTop:'20%'}}><Spinner  animation="border" /></div> : ''}
             <MyComments></MyComments>
             <FormControl
                 placeholder="Titulo"

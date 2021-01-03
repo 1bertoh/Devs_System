@@ -17,6 +17,7 @@ const INITIAL_STATE = {
     myCommentEmailUser: [],
     myComment: [],
     myCommentTitle: [],
+    theme: 'dark',
     devPics: [ Foto1, Foto2, Foto3, Foto4, Foto5, Foto6, Foto7, Foto8, Foto9, Foto10,]
 
 }
@@ -55,7 +56,17 @@ function getComment(state = INITIAL_STATE, action) {
             return state;
     }
 }
+function changeTheme(state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case 'CHANGE_THEME': 
+            return {
+                ...state,
+                theme: action.theme
+            }
+        default: return state
+    }
+}
 
-const store = createStore(combineReducers({getDevs, getDevId, getComment}));
+const store = createStore(combineReducers({getDevs, getDevId, getComment, changeTheme}));
 
 export default store;

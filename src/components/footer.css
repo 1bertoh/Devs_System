@@ -1,0 +1,16 @@
+#footer{
+    border: 1px solid black;
+    background-color: darkslategray;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-left: 15px solid whitesmoke;
+    border-right: 15px solid whitesmoke;
+}
+
+#footer p{
+    margin: auto;
+    color: aliceblue;
+    font-weight: 500;
+    font-size: larger;
+}

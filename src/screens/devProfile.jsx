@@ -32,7 +32,6 @@ export default (props) => {
         <Card id='cardProfile'>
             <Card.Img variant="top" id='picProfile' src={devPics[token - 1]} />
             <Card.Body>
-                {token}
                 <CardNavigation></CardNavigation>
             </Card.Body>
         </Card>
