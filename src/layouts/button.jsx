@@ -6,7 +6,7 @@ export default (props) => {
 
     return (
         <>
-            <Button variant="" id="button" o href={props.link} block>
+            <Button variant="" id="button"  href={props.link} block>
                 {props.text}
             </Button>
         </>

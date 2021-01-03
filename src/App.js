@@ -14,28 +14,28 @@ function App() {
     return (
         <Provider store={store}>
             <div className="App ">
-            <header className="mb-3">
-                <NavBar id="navbar"></NavBar>
-            </header>
+                <header className="mb-3">
+                    <NavBar id="navbar"></NavBar>
+                </header>
 
-            <Container id="container">
-                <Row>
-                    <Col>
-                        <Switch>
-                            <Route exact path="/devs" component={Index} />
-                            <Route path="/aboutus" component={AboutUs} />
-                            <Route
-                                exact
-                                to="/devprofile?id=:id"
-                                component={DevProfile}
-                            />
-                        </Switch>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                <Container id="container">
+                    <Row>
+                        <Col>
+                            <Switch>
+                                <Route exact path="/" component={Index} />
+                                <Route exact path="/devs" component={Index} />
+                                <Route path="/aboutus" component={AboutUs} />
+                                <Route
+                                    exact
+                                    to="/devprofile?id=:id"
+                                    component={DevProfile}
+                                />
+                            </Switch>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         </Provider>
-        
     );
 }
 
