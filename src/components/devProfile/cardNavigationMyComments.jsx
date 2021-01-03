@@ -5,7 +5,7 @@ import {Card} from 'react-bootstrap'
 export default (props) => {
     const comments = useSelector((state) => state.getComment.myComment);
     const emailUser = useSelector((state) => state.getComment.myCommentEmailUser);
-    const commentName = useSelector((state) => state.getComment.myCommentName);
+    const commentTitle = useSelector((state) => state.getComment.myCommentTitle);
 
     function generateMyComments() {
         return comments.map((comment, idx) => {
@@ -16,7 +16,7 @@ export default (props) => {
                     style={{ textAlign: "start" }}
                 >
                     <Card.Body>
-                        <Card.Title>{commentName[idx]}</Card.Title>
+                        <Card.Title>{commentTitle[idx]}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
                             {emailUser[idx]}
                         </Card.Subtitle>
@@ -30,9 +30,6 @@ export default (props) => {
     return (
         <>
             {generateMyComments()}
-            {console.log(commentName)}
-            {console.log(comments)}
-            {console.log(emailUser)}
         </>
     );
 }

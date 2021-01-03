@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Card from "../layouts/devCard";
-import Foto from "../devs_pics/man1.jpg";
 import { CardDeck } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
@@ -9,6 +8,7 @@ import axios from "axios";
 export default () => {
     const devs = useSelector((state) => state.getDevs.devs);
     const dispatch = useDispatch();
+    const devPics = useSelector((state) => state.getDevs.devPics);
     const api = axios.create({
         baseURL: "https://jsonplaceholder.typicode.com/users",
     });
@@ -25,18 +25,18 @@ export default () => {
         console.log(devs)
         console.log(`esse é a data tamanho ${devs.length}`)
 
-        return devs.map((dev) => {
+        return devs.map((dev, idx) => {
             return (
                 <Card
                     key={dev.id}
-                    Foto={Foto}
+                    Foto={devPics[idx]}
                     userId={dev.id}
                     link={`devprofile?id=${dev.id}`}
                     id="card1"
                     name={dev.name}
                     email={dev.email}
                 ></Card>
-            )
+            );
         })
     }
     
@@ -44,7 +44,7 @@ export default () => {
         <div>
             
             <CardDeck id="cardDeck">
-                <p>o</p>
+                {console.log(`devpics ${devPics}`)}
                 { cards()}
             </CardDeck>
         </div>

@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, FormControl, InputGroup, Button } from "react-bootstrap";
+import { Card, FormControl, InputGroup, Button, Alert } from "react-bootstrap";
 import axios from "axios";
-import MyComments from './cardNavigationMyComments'
+import MyComments from "./cardNavigationMyComments";
 import "./cardNavigationComment.css";
 
 export default () => {
     const devId = useSelector((state) => state.getDevId.devId);
     const [comments, setComments] = React.useState([]);
-    const [emailUser, setEmailUser] = React.useState('')
-    const [myComment, setMyComment] = React.useState('')
-    const [myCommentName, setMyCommentName] = React.useState("");
+    const [emailUser, setEmailUser] = React.useState("");
+    const [myComment, setMyComment] = React.useState("");
+    const [myCommentTitle, setMyCommentTitle] = React.useState("");
+    const [commentAlert, setCommentAlert] = React.useState(false);
     const dispatch = useDispatch();
     const api = axios.create({
         baseURL: `https://jsonplaceholder.typicode.com/comments?postId=${devId}`,
     });
-     
 
     useEffect(async () => {
         const response = await api.get("");
@@ -24,10 +24,23 @@ export default () => {
     }, []);
 
     function commentCreator() {
-        dispatch({ type: "GET_COMMENT", comment: myComment, emailUser: emailUser, name: myCommentName });
+        if (myComment ==='' || myCommentTitle === '' || emailUser === "") {
+            setCommentAlert(true)
+        } else {
+            dispatch({
+                type: "GET_COMMENT",
+                comment: myComment,
+                emailUser: emailUser,
+                title: myCommentTitle,
+            });
+            setMyComment("");
+            setMyCommentTitle("");
+            setEmailUser("");
+            setCommentAlert(false);
         }
+    }
 
-        function generateComments() {
+    function generateComments() {
         return comments.map((comment) => {
             return (
                 <Card
@@ -47,22 +60,22 @@ export default () => {
         });
     }
 
-   
-
-
     return (
         <div>
             {generateComments()}
             <MyComments></MyComments>
             <FormControl
-                placeholder="Nome"
+                placeholder="Titulo"
+                value={myCommentTitle}
                 onChange={(e) => {
-                    setMyCommentName(e.target.value);
+                    setMyCommentTitle(e.target.value);
                 }}
                 aria-describedby="basic-addon1"
             />
             <FormControl
+                className='my-2'
                 placeholder="E-mail/Apelido"
+                value={emailUser}
                 onChange={(e) => {
                     setEmailUser(e.target.value);
                 }}
@@ -86,11 +99,15 @@ export default () => {
                 <FormControl
                     as="textarea"
                     placeholder="Comentário"
+                    value={myComment}
                     onChange={(e) => {
                         setMyComment(e.target.value);
                     }}
                 />
             </InputGroup>
+            {commentAlert ? <Alert variant='danger'>
+                Preencha os compos
+            </Alert> : ''}
         </div>
     );
 };

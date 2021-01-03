@@ -8,7 +8,7 @@ export default (props) => {
     return (
         <div className='mb-3'>
             <Card style={{ width: "18rem" }} id={props.id}>
-                <Card.Img variant="top" src={props.Foto} />
+                <Card.Img variant="top" src={props.Foto} style={{maxHeight:'10em'}} />
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Card,} from "react-bootstrap";
-import Foto from  '../devs_pics/man1.jpg'
+import Foto from  '../devs_pics/dev1.jpg'
 import CardNavigation from '../components/devProfile/cardNavigation'
-import {  useDispatch } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import './devProfile.css'
 import axios from 'axios'
 
@@ -11,6 +11,7 @@ export default (props) => {
     const dispatch = useDispatch();
     const query = new URLSearchParams(props.location.search);
     const token = query.get("id");
+    const devPics = useSelector((state) => state.getDevs.devPics);
     const api = axios.create({
         baseURL: "https://jsonplaceholder.typicode.com/users",
     });
@@ -29,7 +30,7 @@ export default (props) => {
 
     return (
         <Card id='cardProfile'>
-            <Card.Img variant="top" id='picProfile' src={Foto} />
+            <Card.Img variant="top" id='picProfile' src={devPics[token - 1]} />
             <Card.Body>
                 {token}
                 <CardNavigation></CardNavigation>
