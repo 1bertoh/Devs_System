@@ -1,5 +1,4 @@
-import Redux from "redux";
-
+import React from "react";
 import Index from "../screens/index";
 import DevProfile from "../screens/devProfile";
 import AboutUs from "../screens/aboutUs";

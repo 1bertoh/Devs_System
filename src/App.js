@@ -1,10 +1,9 @@
 import "./App.css";
 import React from 'react'
-//import User from './components/User'
 import NavBar from "./components/NavBar";
 import Main from './screens/main'
 import Footer from "./components/footer";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./store";
 
 function App() {

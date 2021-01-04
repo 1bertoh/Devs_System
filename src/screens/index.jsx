@@ -16,13 +16,10 @@ export default () => {
     useEffect(async () => {
         const response = await api.get("");
 
-        console.log(response.data);
         dispatch({ type: "GET_DEVS", devs: response.data });
     }, []);
 
     function cards() {
-        console.log(devs);
-        console.log(`esse é a data tamanho ${devs.length}`);
 
         return devs.map((dev, idx) => {
             return (
@@ -42,7 +39,6 @@ export default () => {
     return (
         <div>
             <CardDeck id="cardDeck">
-                {console.log(`devpics ${devPics}`)}
                 {cards()}
             </CardDeck>
         </div>

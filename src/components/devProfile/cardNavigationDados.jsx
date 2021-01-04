@@ -7,7 +7,6 @@ export default (props) => {
 
     return (
         <div style={{ textAlign: "start" }}>
-            <p>{console.log(dev)}</p>
             <h2>{dev && dev.name}</h2>
             <p>
                 <span>Apelido:</span> {dev && dev.username}

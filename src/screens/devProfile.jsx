@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
-import Foto from "../devs_pics/dev1.jpg";
 import CardNavigation from "../components/devProfile/cardNavigation";
 import { useDispatch, useSelector } from "react-redux";
 import "./devProfile.css";
@@ -18,7 +17,6 @@ export default (props) => {
 
     async function getDevs() {
         const response = await api.get("");
-        console.log(`teste${response.data}`);
         dispatch({ type: "GET_DEVS", devs: response.data });
     }
 

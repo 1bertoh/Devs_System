@@ -22,7 +22,7 @@ export default (props) => {
     function generateTodos() {
         return todos.map((todo) => {
             return (
-                <ListGroup.Item variant={todo.completed ? "success" : "danger"}>
+                <ListGroup.Item key={todo.id} variant={todo.completed ? "success" : "danger"}>
                     {todo.title}
                 </ListGroup.Item>
             );

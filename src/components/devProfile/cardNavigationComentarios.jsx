@@ -54,6 +54,7 @@ export default (props) => {
         return comments.map((comment) => {
             return (
                 <Card
+                    key={comment.id}
                     id="cardComment"
                     className="mb-3"
                     style={{ textAlign: "start" }}
