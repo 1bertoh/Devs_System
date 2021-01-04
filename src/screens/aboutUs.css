@@ -1,7 +1,13 @@
-#aboutUs{
+#about_us_dark{
     color: aliceblue;
    text-align: center;
 }
-#aboutUsContainer{
+
+#about_us_light{
+    color: black;
+   text-align: center;
+}
+
+#about_us_container{
     text-align: start;
 }

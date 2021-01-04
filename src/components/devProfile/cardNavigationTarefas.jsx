@@ -11,13 +11,12 @@ export default (props) => {
         baseURL: `https://jsonplaceholder.typicode.com/todos?userId=${devId}`,
     });
 
-    useEffect( () => {
-        setTimeout(async() => {
+    useEffect(() => {
+        setTimeout(async () => {
             const response = await api.get("");
             setTodos(response.data);
-            setLoadSpinner(false)
-        }, 1000)
-        
+            setLoadSpinner(false);
+        }, 1000);
     }, []);
 
     function generateTodos() {

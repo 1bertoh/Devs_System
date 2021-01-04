@@ -1,6 +1,11 @@
-.App {
+.App_light {
   text-align: center;
   background-color: #02066F;
+}
+
+.App_dark {
+  text-align: center;
+  background-color: #B8F2E6;
 }
 
 .App-logo {
@@ -29,9 +34,4 @@
 
 .card{
   padding-bottom: 10px;
-}
-
-#container{
-  padding-top: 15px;
-  background-color: #00022E;
 }

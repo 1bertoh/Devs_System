@@ -1,25 +1,23 @@
 import React from "react";
 import { Card, Nav } from "react-bootstrap";
-import CardNavigationDados from './cardNavigationDados'
+import CardNavigationDados from "./cardNavigationDados";
 import CardNavigationTarefas from "./cardNavigationTarefas";
 import CardNavigationComentarios from "./cardNavigationComentarios";
 import { useSelector } from "react-redux";
-import './cardNavigation.css'
+import "./cardNavigation.css";
 
 export default (props) => {
+    const [nav, setNav] = React.useState(1);
+    const theme = useSelector((state) => state.changeTheme.theme);
 
-    const [nav, setNav] = React.useState(1)
-    const devId = useSelector((state) => state.getDevId.devId); 
-    
     return (
-        <Card id='cardNav'>
-            {}
-            <Card.Header id='cardNavHeader'>
-                <Nav id='cardNavbar' variant="tabs" defaultActiveKey="#dados">
+        <Card id="cardNav">
+            <Card.Header id={`card_nav_header_${theme}`}>
+                <Nav id="cardNavbar" variant="tabs" defaultActiveKey="#dados">
                     <Nav.Item>
                         <Nav.Link
                             onClick={() => {
-                                setNav(1)
+                                setNav(1);
                             }}
                             href="#dados"
                         >
@@ -56,7 +54,9 @@ export default (props) => {
                     ""
                 )}
                 {nav === 3 ? (
-                    <CardNavigationComentarios></CardNavigationComentarios>
+                    <CardNavigationComentarios
+                        theme={theme}
+                    ></CardNavigationComentarios>
                 ) : (
                     ""
                 )}

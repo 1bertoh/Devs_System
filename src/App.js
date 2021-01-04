@@ -1,48 +1,26 @@
 import "./App.css";
+import React from 'react'
 //import User from './components/User'
-import Index from "./screens/index";
-import DevProfile from "./screens/devProfile";
-import AboutUs from "./screens/aboutUs";
 import NavBar from "./components/NavBar";
+import Main from './screens/main'
 import Footer from "./components/footer";
-import { Switch, Route } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./store";
 
 function App() {
-    const oi = "bb";
+    const [theme, setTheme] = React.useState('light')
+
+    function getTheme(gotTheme) {
+        setTheme(gotTheme)
+    }
+
     return (
         <Provider store={store}>
-            <div className="App ">
+            <div className={ `App_${theme}`}>
                 <header className="mb-3">
-                    <NavBar id="navbar"></NavBar>
+                    <NavBar id="navbar" sendTheme={getTheme}></NavBar>
                 </header>
-                <main>
-                    <Container id="container">
-                        <Row>
-                            <Col>
-                                <Switch>
-                                    <Route exact path="/" component={Index} />
-                                    <Route
-                                        exact
-                                        path="/devs"
-                                        component={Index}
-                                    />
-                                    <Route
-                                        path="/aboutus"
-                                        component={AboutUs}
-                                    />
-                                    <Route
-                                        exact
-                                        to="/devprofile?id=:id"
-                                        component={DevProfile}
-                                    />
-                                </Switch>
-                            </Col>
-                        </Row>
-                    </Container>
-                </main>
+                    <Main ></Main>
                 <footer>
                     <Footer></Footer>
                 </footer>

@@ -1,12 +1,14 @@
 import React from "react";
-import  "./aboutUs.css";
+import "./aboutUs.css";
+import { useSelector } from "react-redux";
 
 export default (props) => {
-    
+    const theme = useSelector((state) => state.changeTheme.theme);
+
     return (
-        <div id='aboutUs'>
+        <div id={`about_us_${theme}`}>
             <h1>DevFamily</h1>
-            <main id="aboutUsContainer">
+            <main id={`about_us_container`}>
                 <h3>Quem Somos?</h3>
                 <p>
                     Nam a ante lorem. Interdum et malesuada fames ac ante ipsum

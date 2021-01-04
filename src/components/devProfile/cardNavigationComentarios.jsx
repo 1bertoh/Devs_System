@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, FormControl, InputGroup, Button, Alert, Spinner } from "react-bootstrap";
+import {
+    Card,
+    FormControl,
+    InputGroup,
+    Button,
+    Alert,
+    Spinner,
+} from "react-bootstrap";
 import axios from "axios";
 import MyComments from "./cardNavigationMyComments";
 import "./cardNavigationComment.css";
 
-export default () => {
+export default (props) => {
     const devId = useSelector((state) => state.getDevId.devId);
     const [comments, setComments] = React.useState([]);
     const [emailUser, setEmailUser] = React.useState("");
@@ -18,18 +25,17 @@ export default () => {
         baseURL: `https://jsonplaceholder.typicode.com/comments?postId=${devId}`,
     });
 
-    useEffect( () => {
-        setTimeout(async() => {
+    useEffect(() => {
+        setTimeout(async () => {
             const response = await api.get("");
             setComments(response.data);
-            setLoadSpinner(false)
-        }, 1000)
-        
+            setLoadSpinner(false);
+        }, 1000);
     }, []);
 
     function commentCreator() {
-        if (myComment ==='' || myCommentTitle === '' || emailUser === "") {
-            setCommentAlert(true)
+        if (myComment === "" || myCommentTitle === "" || emailUser === "") {
+            setCommentAlert(true);
         } else {
             dispatch({
                 type: "GET_COMMENT",
@@ -67,7 +73,13 @@ export default () => {
     return (
         <div>
             {generateComments()}
-            {loadSpinner  ? <div style={{height:'30em', paddingTop:'20%'}}><Spinner  animation="border" /></div> : ''}
+            {loadSpinner ? (
+                <div style={{ height: "30em", paddingTop: "20%" }}>
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                ""
+            )}
             <MyComments></MyComments>
             <FormControl
                 placeholder="Titulo"
@@ -78,7 +90,7 @@ export default () => {
                 aria-describedby="basic-addon1"
             />
             <FormControl
-                className='my-2'
+                className="my-2"
                 placeholder="E-mail/Apelido"
                 value={emailUser}
                 onChange={(e) => {
@@ -94,7 +106,7 @@ export default () => {
                             onClick={() => {
                                 commentCreator();
                             }}
-                            id="button"
+                            id={`button_${props.theme}`}
                             block
                         >
                             Enviar
@@ -110,9 +122,11 @@ export default () => {
                     }}
                 />
             </InputGroup>
-            {commentAlert ? <Alert variant='danger'>
-                Preencha os compos
-            </Alert> : ''}
+            {commentAlert ? (
+                <Alert variant="danger">Preencha os compos</Alert>
+            ) : (
+                ""
+            )}
         </div>
     );
 };

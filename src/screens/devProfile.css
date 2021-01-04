@@ -1,8 +1,15 @@
-#cardProfile{
+#card_profile_dark{
     width: 80%;
     margin: auto;
     background-color: #0097a7;
 }
+
+#card_profile_light{
+    width: 80%;
+    margin: auto;
+    background-color: #FAF3DD;
+}
+
 
 #picProfile{
     width: 80%;

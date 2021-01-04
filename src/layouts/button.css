@@ -1,4 +1,9 @@
-#button{
+#button_dark{
     background-color: #FF073A;
     color: white;
+}
+
+#button_light{
+    background-color: #FFA69E;
+    color: #7a0f05;
 }

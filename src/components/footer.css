@@ -1,5 +1,4 @@
-#footer{
-    border: 1px solid black;
+#footer_dark{
     background-color: darkslategray;
     height: 4em;
     display: flex;
@@ -8,7 +7,18 @@
     border-right: 15px solid whitesmoke;
 }
 
-#footer p{
+#footer_light{
+    background-color: #457b9d;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-left: 15px solid #FAF3DD;
+    border-right: 15px solid #FAF3DD;
+}
+
+
+
+#footer_dark p, #footer_light p {
     margin: auto;
     color: aliceblue;
     font-weight: 500;
