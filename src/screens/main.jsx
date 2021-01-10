@@ -7,7 +7,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import "./main.css";
 
-export default (props) => {
+export default function Main (props) {
     const theme = useSelector((state) => state.changeTheme.theme);
 
     return (

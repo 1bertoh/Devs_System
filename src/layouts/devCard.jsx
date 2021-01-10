@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import CompButton from "../layouts/button";
 import "./devCard.css";
 
-export default (props) => {
+export default function DevCard (props) {
     return (
         <div className="mb-3">
             <Card style={{ width: "18rem" }} id={props.id}>

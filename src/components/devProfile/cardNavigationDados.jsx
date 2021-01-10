@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default (props) => {
+export default function CardNavigationDados (props) {
     const devId = useSelector((state) => state.getDevId.devId) - 1;
     const dev = useSelector((state) => state.getDevs.devs[devId]);
 

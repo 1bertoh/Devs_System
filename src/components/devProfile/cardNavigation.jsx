@@ -6,7 +6,7 @@ import CardNavigationComentarios from "./cardNavigationComentarios";
 import { useSelector } from "react-redux";
 import "./cardNavigation.css";
 
-export default (props) => {
+export default function CardNavigation (props) {
     const [nav, setNav] = React.useState(1);
     const theme = useSelector((state) => state.changeTheme.theme);
 

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { ListGroup, Spinner } from "react-bootstrap";
 import axios from "axios";
 
-export default (props) => {
+export default function CardNavigationTarefas (props)  {
     const devId = useSelector((state) => state.getDevId.devId);
     const [todos, setTodos] = React.useState([]);
     const [loadSpinner, setLoadSpinner] = React.useState(true);

@@ -2,9 +2,10 @@ import React from "react";
 import { BsFillBrightnessHighFill, BsMoon } from "react-icons/bs";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import changeTheme from '../redux/actions/changeTheme'
 import "./navBar.css";
 
-export default (props) => {
+export default function NavBar (props) {
     const dispatch = useDispatch();
     const theme = useSelector((state) => state.changeTheme.theme);
 
@@ -20,8 +21,8 @@ export default (props) => {
                     variant=""
                     onClick={() => {
                         theme === "dark"
-                            ? dispatch({ type: "CHANGE_THEME", theme: "light" })
-                            : dispatch({ type: "CHANGE_THEME", theme: "dark" });
+                            ? dispatch(changeTheme({ theme: "light" }))
+                            : dispatch(changeTheme({ theme: "dark" }));
                         props.sendTheme(theme);
                     }}
                 >

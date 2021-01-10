@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 import {useSelector} from 'react-redux'
 
-export default () => {
+export default function Footer () {
     const theme = useSelector((status) => status.changeTheme.theme)
 
     return (

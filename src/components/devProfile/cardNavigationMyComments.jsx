@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from "react-redux";
 import {Card} from 'react-bootstrap'
 
-export default (props) => {
+export default function CardNavigationMyComments (props) {
     const comments = useSelector((state) => state.getComment.myComment);
     const emailUser = useSelector((state) => state.getComment.myCommentEmailUser);
     const commentTitle = useSelector((state) => state.getComment.myCommentTitle);

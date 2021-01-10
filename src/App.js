@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Main from './screens/main'
 import Footer from "./components/footer";
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./redux/store";
 
 function App() {
     const [theme, setTheme] = React.useState('light')

@@ -2,7 +2,7 @@ import React from "react";
 import "./aboutUs.css";
 import { useSelector } from "react-redux";
 
-export default (props) => {
+export default function About (props) {
     const theme = useSelector((state) => state.changeTheme.theme);
 
     return (

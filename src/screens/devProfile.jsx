@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import CardNavigation from "../components/devProfile/cardNavigation";
 import { useDispatch, useSelector } from "react-redux";
+import devPics from '../redux/devsPics';
+import getDevId from '../redux/actions/getDevId'
 import "./devProfile.css";
 import axios from "axios";
 
-export default (props) => {
+export default function DevProfile (props) {
     const dispatch = useDispatch();
     const query = new URLSearchParams(props.location.search);
     const token = query.get("id");
-    const devPics = useSelector((state) => state.getDevs.devPics);
+    //const devPics = useSelector((state) => state.getDevs.devPics);
     const theme = useSelector((status) => status.changeTheme.theme);
     const api = axios.create({
         baseURL: "https://jsonplaceholder.typicode.com/users",
@@ -22,7 +24,7 @@ export default (props) => {
 
     useEffect(() => {
         getDevs();
-        dispatch({ type: "GET_DEVID", id: token });
+        dispatch( getDevId({id: token }));
     });
 
     return (

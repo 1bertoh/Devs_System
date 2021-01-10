@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "./button.css";
 import { useSelector } from "react-redux";
 
-export default (props) => {
+export default function ButtonComp (props) {
     const theme = useSelector((status) => status.changeTheme.theme);
 
     return (

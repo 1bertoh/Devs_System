@@ -2,22 +2,25 @@ import React, { useEffect } from "react";
 import Card from "../layouts/devCard";
 import { CardDeck } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import devPics from '../redux/devsPics'
 import "./index.css";
 import axios from "axios";
 
-export default () => {
+export default function Index () {
     const devs = useSelector((state) => state.getDevs.devs);
     const dispatch = useDispatch();
-    const devPics = useSelector((state) => state.getDevs.devPics);
     const api = axios.create({
         baseURL: "https://jsonplaceholder.typicode.com/users",
     });
 
-    useEffect(async () => {
+    useEffect( () => {
+        async function getDevs() {
         const response = await api.get("");
 
         dispatch({ type: "GET_DEVS", devs: response.data });
-    }, []);
+    }
+    getDevs()
+}, []);
 
     function cards() {
 

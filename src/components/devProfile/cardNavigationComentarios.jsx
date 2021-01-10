@@ -11,8 +11,9 @@ import {
 import axios from "axios";
 import MyComments from "./cardNavigationMyComments";
 import "./cardNavigationComment.css";
+import setComment from '../../redux/actions/myComment'
 
-export default (props) => {
+export default function CardNavigationComentarios (props)  {
     const devId = useSelector((state) => state.getDevId.devId);
     const [comments, setComments] = React.useState([]);
     const [emailUser, setEmailUser] = React.useState("");
@@ -37,12 +38,11 @@ export default (props) => {
         if (myComment === "" || myCommentTitle === "" || emailUser === "") {
             setCommentAlert(true);
         } else {
-            dispatch({
-                type: "GET_COMMENT",
+            dispatch(setComment( {
                 comment: myComment,
                 emailUser: emailUser,
                 title: myCommentTitle,
-            });
+            }));
             setMyComment("");
             setMyCommentTitle("");
             setEmailUser("");
